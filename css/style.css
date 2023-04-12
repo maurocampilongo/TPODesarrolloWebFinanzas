@@ -1,6 +1,7 @@
 /* Hoja de estilos */
 /* Selector Universal */
 *{
+   
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -8,16 +9,33 @@
 
 /* Selector Clase */
 .contenedor {
-        display: grid;
-        grid-template: 100px auto / 20% auto;
-    
-        /* Atajo para definir tres filas y tres columnas */
-                
-        /* Defino tres filas y tres columnas*/ 
+        
+    display: grid;
+    grid-template: 100px auto / 20% auto;
+               
+ /* Defino tres filas y dos columnas*/ 
     grid-template-areas: "header header"
                         "izq contenido"
                         "pie pie";
-    
+
+    border-color: brown;
+    border-style: solid;
     /* Separamos los items con Gap */             
-         gap: 5px;
+         gap: 10px;
     }
+
+    .header { grid-area: header; background-color: red;}
+    .izq {grid-area: izq; background-color: rgb(89, 171, 171);}
+    .contenido { grid-area: contenido; background-color: rgb(255, 255, 255);}
+    .pie { grid-area: pie;background-color: rgb(43, 190, 201);}
+
+.item {
+    padding: auto;
+    width: 100%;
+    border-radius: 10px;
+    }
+
+.img {
+    border-radius: 25px;
+    width: 100%;
+    max-width: 400px;
