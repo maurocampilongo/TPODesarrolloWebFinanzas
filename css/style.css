@@ -11,33 +11,43 @@
 .contenedor {
         
     display: grid;
+
+     /* Uso un atajo para definir tres filas / dos columnas */
     grid-template: 4fr 12fr 4fr/ 40% auto; 
     padding: 3px;
 
- /* Defino tres filas y dos columnas*/ 
+ /* Distribuimos el contenido en cada fila */
     grid-template-areas: "header header"
                         "izq contenido"
                         "pie pie";
-
+/* pong color al borde para identificar el contenedor*/ 
     border-color: black;
     border-style: solid;
+
     /* Separamos los items con Gap */             
          gap: 10px;
+
+    /* Centramos verticalmente */
+       /* align-items: center;
+        justify-items: center; */
+        place-items: center;
     }
 
+    /* Definimos las diferentes clases*/ 
     .header { grid-area: header; background-color:#2E4F4F;color:white; align-items;}
     .izq {grid-area: izq; background-color: #0E8388;color:white}
     .contenido { grid-area: contenido; background-color: #CBE4DE; color:#0E8388}
     .pie { grid-area: pie;background-color: #2E4F4F;color: white}
 
-.item {
-    padding: auto;
-    width: 100%;
-    border-radius: 10px;
-    text-align: center;
+    .item {
+        padding: auto;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
     }
 
-.img {
-    border-radius: 25px;
-    width: 100%;
-    max-width: 400px;}
+    .img {
+        border-radius: 25px;
+        width: 100%;
+        max-width: 400px;
+    }
