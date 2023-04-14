@@ -1,53 +1,64 @@
 /* Hoja de estilos */
 /* Selector Universal */
 *{
-   
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-/* Selector Clase */
+/*Grid Container: es el elemento padre*/
 .contenedor {
-        
-    display: grid;
-
-     /* Uso un atajo para definir tres filas / dos columnas */
-    grid-template: 4fr 12fr 4fr/ 40% auto; 
-    padding: 3px;
-
- /* Distribuimos el contenido en cada fila */
+<<<<<<< Updated upstream
+        display: grid;
+        grid-template: 100px auto / 20% auto;
+    
+        /* Atajo para definir tres filas y tres columnas */
+                
+        /* Defino tres filas y tres columnas*/ 
     grid-template-areas: "header header"
                         "izq contenido"
                         "pie pie";
-/* pong color al borde para identificar el contenedor*/ 
+    
+    /* Separamos los items con Gap */             
+         gap: 5px;
+    }
+=======
+    display: grid;     
+    /* Uso un atajo para definir tres filas / dos columnas */ 
+    grid-template: 100px 1fr 100px / 400px 1fr;
+                        /*filas columnas*/
+    grid-template-areas: "enc enc"
+                         "izq contenido"
+                         "pie pie";
+    grid-gap: 20px;
+    gap: 10px; /* Separamos los items con Gap              */
+    height: 100vh;
+    padding: 3px;
+    /* pongo color al borde para identificar visualmente el contenedor*/ 
     border-color: black;
     border-style: solid;
+    
+}
+/* Definimos las diferentes clases*/ 
+.enc {grid-area: enc; background-color:#2E4F4F;color:white}
+.izq {grid-area: izq; background-color: #0E8388;color:white}
+.contenido { grid-area: contenido; background-color: #CBE4DE; color:#0E8388}
+.pie { grid-area: pie; background-color: #2E4F4F;color: white}
 
-    /* Separamos los items con Gap */             
-         gap: 10px;
-
-    /* Centramos verticalmente */
-       /* align-items: center;
-        justify-items: center; */
-        place-items: center;
-    }
-
-    /* Definimos las diferentes clases*/ 
-    .header { grid-area: header; background-color:#2E4F4F;color:white; align-items;}
-    .izq {grid-area: izq; background-color: #0E8388;color:white}
-    .contenido { grid-area: contenido; background-color: #CBE4DE; color:#0E8388}
-    .pie { grid-area: pie;background-color: #2E4F4F;color: white}
-
-    .item {
-        padding: auto;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    .img {
+/* Es lo que tienen en común todo el contenido del contenedor*/
+.item {
+    padding: auto;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;       
+}
+/*codigo de referencia que usamos*/
+/*.img {
         border-radius: 25px;
         width: 100%;
         max-width: 400px;
-    }
+}*/
+/* Centramos verticalmente
+justify-items: center;     
+place-items: center; /*Es la forma abreviada de align y justify'*/
+>>>>>>> Stashed changes
