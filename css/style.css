@@ -7,27 +7,12 @@
 }
 /*Grid Container: es el elemento padre*/
 .contenedor {
-<<<<<<< Updated upstream
-        display: grid;
-        grid-template: 100px auto / 20% auto;
-    
-        /* Atajo para definir tres filas y tres columnas */
-                
-        /* Defino tres filas y tres columnas*/ 
-    grid-template-areas: "header header"
-                        "izq contenido"
-                        "pie pie";
-    
-    /* Separamos los items con Gap */             
-         gap: 5px;
-    }
-=======
     display: grid;     
     /* Uso un atajo para definir tres filas / dos columnas */ 
     grid-template: 100px 1fr 100px / 400px 1fr;
                         /*filas columnas*/
     grid-template-areas: "enc enc"
-                         "izq contenido"
+                         "menu contenido"
                          "pie pie";
     grid-gap: 20px;
     gap: 10px; /* Separamos los items con Gap              */
@@ -40,7 +25,7 @@
 }
 /* Definimos las diferentes clases*/ 
 .enc {grid-area: enc; background-color:#2E4F4F;color:white}
-.izq {grid-area: izq; background-color: #0E8388;color:white}
+.menu {grid-area: menu; background-color: #0E8388;color:white;}
 .contenido { grid-area: contenido; background-color: #CBE4DE; color:#0E8388}
 .pie { grid-area: pie; background-color: #2E4F4F;color: white}
 
@@ -61,4 +46,3 @@
 /* Centramos verticalmente
 justify-items: center;     
 place-items: center; /*Es la forma abreviada de align y justify'*/
->>>>>>> Stashed changes
