@@ -1,41 +1,85 @@
-/* Hoja de estilos */
-/* Selector Universal */
-*{
-   
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/*----------------------------------------------------------------*/
+/* Hoja de estilos                                                */
+/*----------------------------------------------------------------*/
+/* Fuente para toda la página */
+*{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
+/*----------------------------------------------------------------*/
+/* Definimos el contenedor grid                                   */
+/* Esta es la configuración para dispositivos de mayor tamaño     */
+/*----------------------------------------------------------------*/
+.contenedor {
+    display: grid;
+
+    /* Uso un atajo para definir tres filas / dos columnas */ 
+    grid-template: 100px 1fr auto / 20% auto;
+
+    /* Distribuimos el contenido en cada fila */
+    grid-template-areas: "enc enc"
+                         "menu contenido"
+                         "pie pie";
+    /*grid-gap: 20px;*/
+    gap: 5px; /* Separamos los items con Gap              */
+    height: 100vh;
+    /*padding: 3px;*/
+    /* pongo color al borde para identificar visualmente el contenedor*/ 
+    border-color: black;
+    border-style: solid;
 }
 
-/* Selector Clase */
-.contenedor {
-        
-    display: grid;
-    grid-template: 100px auto / 20% auto;
-               
- /* Defino tres filas y dos columnas*/ 
-    grid-template-areas: "header header"
-                        "izq contenido"
-                        "pie pie";
+/*----------------------------------------------------------------*/
+/* Defino el nombre y color de cada area del grid                 */
+/*----------------------------------------------------------------*/
+.enc        {grid-area: enc;        background-color:#2E4F4F; color:white}
+.menu       {grid-area: menu;       background-color:#0E8388; color:white;}
+.contenido  {grid-area: contenido;  background-color:#CBE4DE; color:#0E8388}
+.pie        {grid-area: pie;        background-color:#2E4F4F; color:white}  
 
-    border-color: brown;
-    border-style: solid;
-    /* Separamos los items con Gap */             
-         gap: 10px;
-    }
-
-    .header { grid-area: header; background-color: red;}
-    .izq {grid-area: izq; background-color: rgb(89, 171, 171);}
-    .contenido { grid-area: contenido; background-color: rgb(255, 255, 255);}
-    .pie { grid-area: pie;background-color: rgb(43, 190, 201);}
-
+/*----------------------------------------------------------------*/
+/* Definimos la apariencia de cada item del grid                  */
+/*----------------------------------------------------------------*/
 .item {
-    padding: auto;
-    width: 100%;
+    padding: 10px;
     border-radius: 10px;
-    }
-
-.img {
-    border-radius: 25px;
     width: 100%;
-    max-width: 400px;
+    text-align: center;
+    vertical-align: middle;       
+}
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo tablet (menos de 920px)     */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 920px) {
+    .contenedor {
+        /* Uso un atajo para definir 3 filas / 2 columna */
+        grid-template: 100px auto 60px / 30% auto;
+
+        /* Distribuimos el contenido en cada fila */
+        grid-template-areas:
+            "enc enc"
+            "menu contenido"
+            "pie pie";
+    }
+}
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo celular (menos de 600px)    */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+    .contenedor {
+        /* Uso un atajo para definir 3 filas / 1 columna */
+        grid-template: 100px auto auto 60px / 100%;
+
+        /* Distribuimos el contenido en cada fila */
+        grid-template-areas: "enc"  "menu"  "contenido" "pie";
+    }
+}
+/*codigo de referencia que usamos*/
+/*.i
+mg {
+        border-radius: 25px;
+        width: 100%;
+        max-width: 400px;
+}*/
+/* Centramos verticalmente
+justify-items: center;     
+place-items: center; /*Es la forma abreviada de align y justify'*/
