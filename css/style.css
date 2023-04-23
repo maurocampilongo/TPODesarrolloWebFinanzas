@@ -2,6 +2,7 @@
 /* Hoja de estilos                                                */
 /*----------------------------------------------------------------*/
 /* Fuente para toda la página */
+
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
@@ -17,6 +18,7 @@
     text-decoration: none;
 }
 
+
 /*----------------------------------------------------------------*/
 /* Definimos el contenedor grid                                   */
 /* Esta es la configuración para dispositivos de mayor tamaño     */
@@ -31,13 +33,16 @@
     grid-template-areas: "enc enc"
                          "menu contenido"
                          "pie pie";
+
     grid-gap: 5px;
     /* Separamos los items con Gap              */
+
     height: 100vh;
     /*padding: 3px;*/
     /* pongo color al borde para identificar visualmente el contenedor*/ 
     border-color: black;
     border-style: solid;
+
    
 }
 
@@ -86,16 +91,19 @@ nav ul li:hover { background-color: #a0abab;}
     color: white
 }
 
+
 /*----------------------------------------------------------------*/
 /* Definimos la apariencia de cada item del grid                  */
 /*----------------------------------------------------------------*/
 .item {
     padding: 10px;
     border-radius: 10px;
+
     /*width: 100%;*/
     text-align: center;
     vertical-align: middle;
 }
+
 
 /*----------------------------------------------------------------*/
 /* Punto de corte para pantallas tipo tablet (menos de 920px)     */
@@ -122,9 +130,11 @@ nav ul li:hover { background-color: #a0abab;}
         grid-template: 100px auto auto 60px / 100%;
 
         /* Distribuimos el contenido en cada fila */
+
         grid-template-areas: "enc" "menu" "contenido" "pie";
     }
 }
+
 
 /*codigo de referencia que usamos*/
 /*.i
@@ -134,5 +144,6 @@ mg {
         max-width: 400px;
 }*/
 /* Centramos verticalmente
+
 justify-items: center;
 place-items: center; /*Es la forma abreviada de align y justify'*/
