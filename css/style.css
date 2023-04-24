@@ -1,10 +1,14 @@
-/* Hoja de estilos */
-/* Selector Universal */
-*{
+/*----------------------------------------------------------------*/
+/* Hoja de estilos                                                */
+/*----------------------------------------------------------------*/
+/* Fuente para toda la página */
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 /*Grid Container: es el elemento padre*/
 .contenedor {
     display: grid;     
@@ -74,6 +78,7 @@ nav ul li:hover { background-color: #a0abab;}
 /* Definimos la apariencia de cada item del grid                  */
 /*----------------------------------------------------------------*/
 .item {
+
     padding: auto;
     border-radius: 10px;
     width: 100%;
@@ -82,10 +87,9 @@ nav ul li:hover { background-color: #a0abab;}
 }
 /*codigo de referencia que usamos*/
 /*.img {
+
         border-radius: 25px;
         width: 100%;
         max-width: 400px;
 }*/
 /* Centramos verticalmente
-justify-items: center;     
-place-items: center; /*Es la forma abreviada de align y justify'*/
