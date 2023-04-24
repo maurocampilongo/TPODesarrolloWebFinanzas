@@ -23,13 +23,56 @@
     border-style: solid;
     
 }
-/* Definimos las diferentes clases*/ 
-.enc {grid-area: enc; background-color:#2E4F4F;color:white}
-.menu {grid-area: menu; background-color: #0E8388;color:white;}
-.contenido { grid-area: contenido; background-color: #CBE4DE; color:#0E8388}
-.pie { grid-area: pie; background-color: #2E4F4F;color: white}
 
-/* Es lo que tienen en común todo el contenido del contenedor*/
+/* Formato de la lista */
+li {
+    background-color: #33e3ba;
+    /*Color de fondo del contenedor */
+    padding: 10px;
+    /*Coloco un espacio alrededor del conjunto de hijos*/
+    border: 2px solid black;
+    /* Borde del contenedor */
+    border-radius: 10px;
+    margin: 10px;
+    /* Bespacio entre contenedores de cada item */
+    
+}
+
+/* CAmbia color cuando apoyo el mouse */
+nav ul li:hover { background-color: #a0abab;}
+
+/*----------------------------------------------------------------*/
+/* Defino el nombre y color de cada area del grid                 */
+/*----------------------------------------------------------------*/
+.enc {
+    grid-area: enc;
+    background-color: #2E4F4F;
+    color: white;
+    justify-self: auto;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: #0E8388;
+    color: white;
+}
+
+.contenido {
+    grid-area: contenido;
+    background-color: #CBE4DE;
+    color: #0E8388;
+}
+
+.pie {
+    grid-area: pie;
+    background-color: #2E4F4F;
+    color: white
+}
+
+
+/*----------------------------------------------------------------*/
+/* Definimos la apariencia de cada item del grid                  */
+/*----------------------------------------------------------------*/
 .item {
     padding: auto;
     border-radius: 10px;
