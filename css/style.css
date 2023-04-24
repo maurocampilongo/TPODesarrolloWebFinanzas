@@ -8,37 +8,20 @@
     margin: 0;
     padding: 0;
 }
-/*lista sin viñetas */
-* ul { list-style-type: none;
-    list-style-type: none;
-}
 
-/*lista sin subrayado*/
-* a {
-    text-decoration: none;
-}
-
-
-/*----------------------------------------------------------------*/
-/* Definimos el contenedor grid                                   */
-/* Esta es la configuración para dispositivos de mayor tamaño     */
-/*----------------------------------------------------------------*/
+/*Grid Container: es el elemento padre*/
 .contenedor {
-    display: grid;
-
+    display: grid;     
     /* Uso un atajo para definir tres filas / dos columnas */ 
-    grid-template: 100px 1fr auto / 20% auto;
-
-    /* Distribuimos el contenido en cada fila */
+    grid-template: 100px 1fr 100px / 400px 1fr;
+                        /*filas columnas*/
     grid-template-areas: "enc enc"
                          "menu contenido"
                          "pie pie";
-
-    grid-gap: 5px;
-    /* Separamos los items con Gap              */
-
+    grid-gap: 20px;
+    gap: 10px; /* Separamos los items con Gap              */
     height: 100vh;
-    /*padding: 3px;*/
+    padding: 3px;
     /* pongo color al borde para identificar visualmente el contenedor*/ 
     border-color: black;
     border-style: solid;
@@ -95,54 +78,18 @@ nav ul li:hover { background-color: #a0abab}
 /* Definimos la apariencia de cada item del grid                  */
 /*----------------------------------------------------------------*/
 .item {
-    padding: 10px;
+
+    padding: auto;
     border-radius: 10px;
-
-    /*width: 100%;*/
+    width: 100%;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: middle;       
 }
-
-
-/*----------------------------------------------------------------*/
-/* Punto de corte para pantallas tipo tablet (menos de 920px)     */
-/*----------------------------------------------------------------*/
-@media only screen and (max-width: 920px) {
-    .contenedor {
-        /* Uso un atajo para definir 3 filas / 2 columna */
-        grid-template: 100px auto 60px / 30% auto;
-
-        /* Distribuimos el contenido en cada fila */
-        grid-template-areas:
-            "enc enc"
-            "menu contenido"
-            "pie pie";
-    }
-}
-
-/*----------------------------------------------------------------*/
-/* Punto de corte para pantallas tipo celular (menos de 600px)    */
-/*----------------------------------------------------------------*/
-@media only screen and (max-width: 600px) {
-    .contenedor {
-        /* Uso un atajo para definir 3 filas / 1 columna */
-        grid-template: 100px auto auto 60px / 100%;
-
-        /* Distribuimos el contenido en cada fila */
-
-        grid-template-areas: "enc" "menu" "contenido" "pie";
-    }
-}
-
-
 /*codigo de referencia que usamos*/
-/*.i
-mg {
+/*.img {
+
         border-radius: 25px;
         width: 100%;
         max-width: 400px;
 }*/
 /* Centramos verticalmente
-
-justify-items: center;
-place-items: center; /*Es la forma abreviada de align y justify'*/
