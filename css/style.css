@@ -102,7 +102,14 @@ nav ul li:hover { background-color: #a0abab}
     text-align: center;
     vertical-align: middle;
 }
-
+/*----------------------------------------------------------------*/
+/* Imagen con bordes redondeados, con limites de tamaño           */
+/*----------------------------------------------------------------*/
+img {
+    border-radius: 30px;
+    width: 100%;
+    max-width:400px;
+  }
 
 /*----------------------------------------------------------------*/
 /* Punto de corte para pantallas tipo tablet (menos de 920px)     */
