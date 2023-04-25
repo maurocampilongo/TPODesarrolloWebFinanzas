@@ -85,6 +85,46 @@ nav ul li:hover { background-color: #a0abab}
     text-align: center;
     vertical-align: middle;       
 }
+/*----------------------------------------------------------------*/
+/* Imagen con bordes redondeados, con limites de tamaño           */
+/*----------------------------------------------------------------*/
+img {
+    border-radius: 30px;
+    width: 100%;
+    max-width:400px;
+  }
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo tablet (menos de 920px)     */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 920px) {
+    .contenedor {
+        /* Uso un atajo para definir 3 filas / 2 columna */
+        grid-template: 100px auto 60px / 30% auto;
+
+        /* Distribuimos el contenido en cada fila */
+        grid-template-areas:
+            "enc enc"
+            "menu contenido"
+            "pie pie";
+    }
+}
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo celular (menos de 600px)    */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 600px) {
+    .contenedor {
+        /* Uso un atajo para definir 3 filas / 1 columna */
+        grid-template: 100px auto auto 60px / 100%;
+
+        /* Distribuimos el contenido en cada fila */
+
+        grid-template-areas: "enc" "menu" "contenido" "pie";
+    }
+}
+
+
 /*codigo de referencia que usamos*/
 /*.img {
 
