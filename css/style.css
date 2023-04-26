@@ -4,9 +4,10 @@
 /* Fuente para toda la página */
 
 * {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 5px;
+    justify-self: auto;
 }
 
 /*Grid Container: es el elemento padre*/
@@ -19,16 +20,28 @@
                          "menu contenido"
                          "pie pie";
     grid-gap: 20px;
-    gap: 10px; /* Separamos los items con Gap              */
+    gap: 10px; /* Separamos los items con Gap */
     height: 100vh;
     padding: 3px;
-    /* pongo color al borde para identificar visualmente el contenedor*/ 
+    /* pongo color al borde para identificar visualmente el contenedor  
     border-color: black;
+<<<<<<< Updated upstream
     border-style: solid;
     
 }
 
 /* Formato de la lista */
+=======
+    border-style: solid; */
+}
+
+/* Formato de la lista */
+a:visited {color: #2E4F4F; }
+
+/*lista sin viñetas */
+* ul { list-style-type: none;
+    }
+>>>>>>> Stashed changes
 li {
     background-color: #33e3ba;
     /*Color de fondo del contenedor */
@@ -70,7 +83,8 @@ nav ul li:hover { background-color: #a0abab;}
 .pie {
     grid-area: pie;
     background-color: #2E4F4F;
-    color: white
+    color: white;
+    justify-self: auto;
 }
 
 
