@@ -28,7 +28,9 @@
 }
 
 /* Formato de la lista */
-a:visited {color: #2E4F4F; }
+a:link, a:visited {color: #2E4F4F;
+    text-decoration: none;
+  }
 
 /*lista sin viñetas */
 * ul { list-style-type: none;
