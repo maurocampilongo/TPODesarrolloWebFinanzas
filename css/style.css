@@ -4,7 +4,9 @@
 /* Fuente para toda la página */
 
 * {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+
+    font-family: 'Inter', sans-serif;
+
     margin: 0;
     padding: 5px;    
 }
@@ -28,9 +30,9 @@
 }
 
 /* Formato de la lista */
-a:link, a:visited {color: #2E4F4F;
-    text-decoration: none;
-  }
+
+a:visited {color: #2E4F4F; }
+
 
 /*lista sin viñetas */
 * ul { list-style-type: none;
@@ -121,15 +123,26 @@ img {
 }
 
 /*----------------------------------------------------------------*/
-/* Punto de corte para pantallas tipo celular (menos de 600px)    */
+/* Imagen con bordes redondeados, con limites de tamaño           */
 /*----------------------------------------------------------------*/
-@media only screen and (max-width: 600px) {
+img {
+    border-radius: 30px;
+    width: 100%;
+    max-width:400px;
+  }
+
+/*----------------------------------------------------------------*/
+/* Punto de corte para pantallas tipo tablet (menos de 920px)     */
+/*----------------------------------------------------------------*/
+@media only screen and (max-width: 920px) {
     .contenedor {
-        /* Uso un atajo para definir 3 filas / 1 columna */
-        grid-template: 100px auto auto 60px / 100%;
+        /* Uso un atajo para definir 3 filas / 2 columna */
+        grid-template: 100px auto 60px / 30% auto;
 
         /* Distribuimos el contenido en cada fila */
-
-        grid-template-areas: "enc" "menu" "contenido" "pie";
+        grid-template-areas:
+            "enc enc"
+            "menu contenido"
+            "pie pie";
     }
 }
