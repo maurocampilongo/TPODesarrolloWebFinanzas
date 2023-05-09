@@ -4,11 +4,10 @@
 /* Fuente para toda la página */
 
 * {
-
+    
     font-family: 'Inter', sans-serif;
-
     margin: 0;
-    padding: 5px;    
+    padding: 0px;    
 }
 
 /*Grid Container: es el elemento padre*/
@@ -30,22 +29,26 @@
 }
 
 /* Formato de la lista */
-
-a:visited {color: #2E4F4F; }
+a,
+a:focus, 
+a:visited {
+    color: #2E4F4F; 
+    text-decoration: none;
+}
 
 
 /*lista sin viñetas */
-* ul { list-style-type: none;
+nav ul { list-style-type: none;
     }
-li {
+nav ul li {
     background-color: #CBE4DE;
     /*Color de fondo del contenedor */
-    padding: 10px;
+    padding: 5px;
     /*Coloco un espacio alrededor del conjunto de hijos*/
     border: 4px solid black;
     /* Borde del contenedor */
     border-radius: 10px;
-    margin: 10px
+    margin: 20px
     /* Espacio entre cada contenedor */
 }
 
@@ -55,23 +58,38 @@ nav ul li:hover { background-color: #a0abab}
 /*----------------------------------------------------------------*/
 /* Defino el nombre y color de cada area del grid                 */
 /*----------------------------------------------------------------*/
-.enc {
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.logo img {
+    height: 100px;
+    width: 100px;
+    border-radius: 0;
+    margin-left: 20px;
+}
+.enc { 
     grid-area: enc;
     background-color: #2E4F4F;
     color: white;
-    justify-self: auto;
+    justify-items: center;
 }
 
 .menu {
     grid-area: menu;
     background-color: #0E8388;
     color: white;
+    text-align: center;
 }
 
 .contenido {
     grid-area: contenido;
     background-color: #CBE4DE;
     color: #0E8388;
+    padding: 0px 20px;
+    font-size: 1.2em;
 }
 
 .pie {
@@ -85,11 +103,9 @@ nav ul li:hover { background-color: #a0abab}
 /* Definimos la apariencia de cada item del grid                  */
 /*----------------------------------------------------------------*/
 .item {
-
-    padding: auto;
+    /* padding: auto;*/
     border-radius: 10px;
-    width: 100%;
-    text-align: center;
+   /* width: 100%;*/
 /*----------------------------------------------------------------*/
 /* Agrego para centrar verticalmente     */
 /*----------------------------------------------------------------*/
@@ -100,10 +116,12 @@ nav ul li:hover { background-color: #a0abab}
 /*----------------------------------------------------------------*/
 /* Imagen con bordes redondeados, con limites de tamaño           */
 /*----------------------------------------------------------------*/
-img {
+.contenido img {
     border-radius: 30px;
-    width: 100%;
+    /*width: 100%;*/
     max-width:400px;
+    border-radius: 10;
+    margin-left: 20px;
   }
 
 /*----------------------------------------------------------------*/
