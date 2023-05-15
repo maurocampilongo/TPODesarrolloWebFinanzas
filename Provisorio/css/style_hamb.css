@@ -52,31 +52,7 @@ nav ul li {
     /* Espacio entre cada contenedor */
 }
 
-        /*------------- TRANSICIONES -------------*/
-
-        a {
-            background: #CBE4DE;
-            color: #2E4F4F;
-            padding: 2px;
-            border: none;
-        }
-
-        a:hover {
-            background: black;
-            color: white;
-            padding: 8px 14px;
-            border: 3px solid rgb(165, 165, 173);
-
-            transition-property: all;
-            /*a todas las propiedades nombradas*/
-            transition-duration: 0.5s;
-            /*con una duración de 0.5s*/
-            transition-timing-function: ease-in;
-            /*inicio lento, luego normal*/
-        }
-    
-
-/* Cambia color cuando apoyo el mouse 
+/* Cambia color cuando apoyo el mouse */
 nav ul li:hover { background-color: #a0abab}
 
 /*----------------------------------------------------------------*/
