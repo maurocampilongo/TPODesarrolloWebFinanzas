@@ -14,11 +14,11 @@
 .contenedor {
     display: grid;     
     /* Uso un atajo para definir tres filas / dos columnas */ 
-    grid-template: 100px 1fr 100px / 400px 1fr;
+    grid-template: 100px 1fr 100px / 300px 1fr;
                         /*filas columnas*/
-    grid-template-areas: "enc enc"
-                         "menu contenido"
-                         "pie pie";
+    grid-template-areas:    "enc   enc"
+                            "menu contenido"
+                            "pie pie";
     grid-gap: 20px;
     gap: 10px; /* Separamos los items con Gap */
     height: 100vh;
@@ -101,17 +101,24 @@ nav ul li:hover { background-color: #a0abab}
     justify-items: center;
 }
 
+.titulo {
+    grid-area: titulo;
+    color: #000;
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: bolder;
+}
 .menu {
     grid-area: menu;
-    background-color: #0E8388;
+    /*background-color: #0E8388;*/
     color: white;
     text-align: center;
 }
 
 .contenido {
     grid-area: contenido;
-    background-color: #CBE4DE;
-    color: #0E8388;
+    /*background-color: #CBE4DE;
+    color: #0E8388;*/
     padding: 20px 40px;
     font-size: 1.2em;
 }

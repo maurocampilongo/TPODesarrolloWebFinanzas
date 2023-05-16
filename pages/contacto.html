@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="/TPODesarrolloWebFinanzas/css/style.css">	
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">	
     <title>Contacto</title>
 </head>
 
 <div class="contenedor">
     <!-- Contenido del Encabezado -->
     <div class="enc">
-        <header> 
+        <header>
         <p>
             <div class="logo">
                <img src="/TPODesarrolloWebFinanzas/images/Finanzmeb_2.jpg" alt="logo">
@@ -39,70 +39,70 @@
                     <li><a href="#">CONTENIDO EDUCATIVO</a></li>
                     <li><a href="#">HERRAMIENTA</a></li>
                 </ul>
-            </nav>            
+            </nav>
         </aside>
     </div>
 
     <!-- Contenido principal-->
     <div class="contenido item">
-    
+
         <form class="formulario" id="formulario">
             <!-- Grupo: Datos Personales -->
             <!-- datos identificación -->
             <div class="formulario_grupo" id="grupo_nombre">
                 <!-- <label for="nombre" class="formulario_label"></label> -->
                     <input type="text" class="formulario_input" name="nombre" id="nombre" placeholder="Nombre" required>
-                        <i class="formulario_validacion-estado fas fa-times-circle"></i>                    
+                        <i class="formulario_validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario_input-error">El nombre tiene que ser solo letras y espacios</p>
 
             <div class="formulario_grupo" id="grupo_apellido">
                 <!-- <label for="apellido" class="formulario_label"></label>                     -->
                     <input type="text" class="formulario_input" name="apellido" id="apellido" placeholder="Apellido" required>
-                        <i class="formulario_validacion-estado fas fa-times-circle"></i>                    
+                        <i class="formulario_validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario_input-error">El apellido tiene que ser solo letras y espacios</p>
-            
-            <!-- datos contacto -->            
+
+            <!-- datos contacto -->
             <div class="formulario_grupo" id="grupo_correo">
                 <!-- <label for="correo" class="formulario_label"></label> -->
                     <input type="email" class="formulario_input" name="correo" id="correo" placeholder="Correo" required>
-                        <i class="formulario_validacion-estado fas fa-times-circle"></i>                    
+                        <i class="formulario_validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario_input-error">El correo debe ser uno válido</p>
-            
+
             <div class="formulario_grupo" id="grupo_telefono">
                 <!-- <label for="telefono" class="formulario_label"></label> -->
                     <input type="tel" class="formulario_input" name="telefono" id="telefono" placeholder="Teléfono" required>
-                    <i class="formulario_validacion-estado fas fa-times-circle"></i>                    
+                    <i class="formulario_validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario_input-error">El teléfono debe ser uno válido</p>
-            
+
             <!-- Grupo: Consulta -->
             <div class="formulario_grupo" id="grupo_consulta">
                 <!-- <label for="consulta" class="formulario_label"></label>     -->
-                    <textarea class="text_area_input" name="consulta" id="consulta" placeholder="Escribe aquí tu mensaje" required></textarea>                    
-                    <i class="formulario_validacion-estado fas fa-times-circle"></i>                                  
+                    <textarea class="text_area_input" name="consulta" id="consulta" placeholder="Escribe aquí tu mensaje" required></textarea>
+                    <i class="formulario_validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario_input-error">Debe escribir algo</p>
-            
-            
+
+
             <!-- Grupo: Botones -->
             <div class="formulario_mensaje" id="formulario_mensaje">
 			    <p><i class="fas fa-exclamation-triangle"></i><b>Error:</b> Por favor rellena el formulario correctamente.</p>
 			</div>
-            
+
             <div class="formulario_grupo formulario_grupo-btn" id="boton_enviar">
                 <button type="submit" class="formulario_btn">Enviar</button>
-            </div> 
+            </div>
             <p class="formulario_mensaje-exito" id="formulario_mensaje-exito">Formulario enviado exitosamente!</p>
-            
+
             <div class="formulario_grupo formulario_grupo-btn" id="boton_reset">
-                <button type="reset" class="formulario_btn">Borrar</button>                    
+                <button type="reset" class="formulario_btn">Borrar</button>
             </div>
             <p class="formulario_mensaje-borrado" id="formulario_mensaje-borrado">Formulario borrado</p>
-            
-             
+
+
 
             <!-- Grupo: Oculto
                 <label for="date">Fecha: </label>
