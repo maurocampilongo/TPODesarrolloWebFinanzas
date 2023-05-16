@@ -232,16 +232,16 @@ img {
     transition: .3s ease all;
 }
 
-#formulario_consulta {
+#grupo_consulta {
     grid-column: span 2;
     grid-row: span 8;
     width: 100%;
 }
 
-#formulario_consulta textarea {
+#grupo_consulta textarea {
     width: 100%;
     box-sizing: border-box;
-    height: 50%;
+    height: 100px;
 }
 
 .formulario_input:focus {
@@ -342,7 +342,7 @@ img {
 	.formulario {
 		grid-template-columns: 1fr;
 	}
-    #formulario_consulta {
+    #grupo_consulta {
         grid-column: span 1;        
 }
 }

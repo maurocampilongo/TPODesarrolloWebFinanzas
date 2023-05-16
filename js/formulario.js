@@ -1,8 +1,10 @@
 /* Obtener el elemento del área de texto donde se deja el comentario
  para  ajustar la altura del área de texto al escribir en ella*/
 const textarea = document.getElementById("consulta");
-textarea.addEventListener("input", () => {  
-  textarea.style.height = textarea.scrollHeight + "px";
+const minHeight = textarea.offsetHeight; // Guardamos la altura inicial del textarea.
+// Esto nos asegura que no se achique el textarea
+textarea.addEventListener("input", () => {	
+	textarea.style.height = Math.max(textarea.scrollHeight, minHeight) + "px"; // Set the new height
 });
 
 /* Constante para acceder al Formulario de nuestro HTML 
