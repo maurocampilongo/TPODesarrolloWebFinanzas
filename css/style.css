@@ -276,7 +276,8 @@ img {
 }
 
 .formulario_mensaje {
-	height: 45px;
+    grid-column: span 2;
+    height: 45px;
 	line-height: 45px;
 	background: none;
 	padding: 0 15px;
