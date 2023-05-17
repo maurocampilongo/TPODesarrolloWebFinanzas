@@ -48,6 +48,8 @@ nav ul li {
     /* Borde del contenedor */
     border-radius: 10px;
     margin: 20px;
+    font-size: x-large;
+
     /* Espacio entre cada contenedor */
 }
 
@@ -85,6 +87,7 @@ nav ul li:hover { background-color: #a0abab}
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 20px;
 
 }
 .logo img {
@@ -104,7 +107,7 @@ nav ul li:hover { background-color: #a0abab}
     grid-area: titulo;
     color: #000;
     text-align: center;
-    font-size: 1.7em;
+    font-size: 2.5em;
     font-weight: bolder;
 }
 .menu {
@@ -194,18 +197,16 @@ img {
   }
 
 /*----------------------------------------------------------------*/
-/* Punto de corte para pantallas tipo tablet (menos de 920px)     */
+/* Punto de corte para pantallas tipo celular (menos de 600px)     */
 /*----------------------------------------------------------------*/
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 600px) {
     .contenedor {
-        /* Uso un atajo para definir 3 filas / 2 columna */
-        grid-template: 100px auto 60px / 30% auto;
+        /* Uso un atajo para definir 5 filas / 1 columna */
+        grid-template: 100px auto auto auto 60px / 100%;
 
         /* Distribuimos el contenido en cada fila */
         grid-template-areas:
-            "enc enc"
-            "menu contenido"
-            "pie pie";
+            "enc" "menu" "contenido" "pie";
     }
 }
 /*----------------------------------------------------------------*/
