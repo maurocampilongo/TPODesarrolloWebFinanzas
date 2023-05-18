@@ -26,6 +26,13 @@
     border-color: black;
     border-style: solid; */
 }
+/*----------------------------------------------------------------*/
+/* Defino el nombre y color de cada area del grid                 */
+/*----------------------------------------------------------------*/
+.enc       { grid-area: enc;    background-color: #2E4F4F  }
+.menu      { grid-area: menu;       background-color: white;  }
+.contenido { grid-area: contenido; background-color: white;}
+.pie       { grid-area: pie;       background-color: #2E4F4F;  }
 
 /* Formato de la lista */
 a,
@@ -53,7 +60,7 @@ nav ul li {
     /* Espacio entre cada contenedor */
 }
 
-        /*------------- TRANSICIONES -------------*/
+ /*------------- TRANSICIONES -------------*/
 
         a {
             background: #CBE4DE;
@@ -83,24 +90,29 @@ nav ul li:hover { background-color: #a0abab}
 /*----------------------------------------------------------------*/
 /* Defino el nombre y color de cada area del grid                 */
 /*----------------------------------------------------------------*/
-.logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
 
-}
-.logo img {
-    height: 100px;
-    width: 100px;
-    border-radius: 0;
-    margin-left: 20px;
-}
 .enc { 
     grid-area: enc;
-    background-color: #2E4F4F;
     color: white;
-    justify-items: center;
+    display: flex;
+    align-content: flex-start;
+}
+
+.logo {
+    display: flex;
+    margin-right: 20px;
+    height: 100px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.lema
+{
+    /*font-weight: bolder;*/
+    font-size: 1.5rem ;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
 }
 
 .titulo {
@@ -127,16 +139,16 @@ nav ul li:hover { background-color: #a0abab}
 
 .pie {
     grid-area: pie;
-    background-color: #2E4F4F;
+    
     color: white;
     justify-self: auto;
 }
 
-header div .contenedor {
+.enc div .contenedor {
     place-content: flex-start;
 }
 
-header div .logo {
+.enc div .logo {
     width: 70%;
     display: flex;
     place-content: space-between;
@@ -190,11 +202,11 @@ header div .logo {
 /*----------------------------------------------------------------*/
 /* Imagen con bordes redondeados, con limites de tamaño           */
 /*----------------------------------------------------------------*/
-img {
+/*img {
     border-radius: 30px;
     width: 100%;
     max-width:400px;
-  }
+  }*/
 
 /*----------------------------------------------------------------*/
 /* Punto de corte para pantallas tipo celular (menos de 600px)     */
