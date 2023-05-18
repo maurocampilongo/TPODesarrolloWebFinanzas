@@ -230,7 +230,7 @@ img {
 .formulario_input {
     width: 75%;
     background: #fff;
-    border: 3px solid transparent;
+    border: 3px solid;
     border-radius: 3px;
     height: 50%;
     line-height: 45px;
