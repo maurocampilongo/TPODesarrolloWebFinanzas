@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------*/
 /* Hoja de estilos                                                */
 /*----------------------------------------------------------------*/
-/* Fuente para toda la página */
+/* Fuente para todas las páginas */
 
 * {
     font-family: 'Inter', sans-serif;
@@ -101,20 +101,40 @@ nav ul li:hover { background-color: #a0abab}
 
 .lema
 {
-    /*font-weight: bolder;*/
+    font-weight: bold;
     font-size: 1.5rem ;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
 }
-
-.titulo {
-    grid-area: titulo;
-    color: #000;
+.titulo {        
+    font-size: 30px;
+    font-weight: bolder;
     text-align: center;
+}
+.contenido_tutorial {
+    color: #000;
+    text-align: center;    
+}
+.titulo_tutorial {        
     font-size: 30px;
     font-weight: bolder;
 }
+.subtitulo_tutorial {    
+    font-size: 20px;
+    font-weight: bolder;
+}
+.texto_tutorial ol li {
+    font-size: 17px;
+    list-style-position: inside;
+}
+.img_tutorial {
+    border-radius: 20px;
+    width: 100%;
+    max-width:100px;
+    padding: 15px;
+}
+
 .menu {
     grid-area: menu;
     background-color: #0E8388;
@@ -126,7 +146,7 @@ nav ul li:hover { background-color: #a0abab}
     grid-area: contenido;
     background-color: white;
     padding: 20px 40px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .pie {
@@ -168,13 +188,20 @@ nav ul li:hover { background-color: #a0abab}
 /* Imagen con bordes redondeados, con limites de tamaño           */
 /*----------------------------------------------------------------*/
 .contenido img {
-    border-radius: 30px;
+    border-radius: 20px;
     width: 100%;
-    max-width:400px;
-    border-radius: 10px;
+    max-width:200px;
   }
 
 /*----------------------------------------------------------------*/
+/*  Estilo para el iframe                                         */
+/*----------------------------------------------------------------*/
+.contenido iframe {
+    display: block;
+    clear: both;
+  }
+
+  /*----------------------------------------------------------------*/
 /* Punto de corte para pantallas tipo tablet (menos de 920px)     */
 /*----------------------------------------------------------------*/
 @media only screen and (max-width: 920px) {
