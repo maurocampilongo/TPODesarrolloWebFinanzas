@@ -17,6 +17,7 @@ El proyecto web se desarrollará en grupos de 4 integrantes cada uno (obligatori
 El TPO deberá cumplir con los siguientes requisitos:
 
 ● Poseer al menos 4 páginas html, siendo su temática libre. En caso de ser un Sitio Web estilo One Page, el mismo deberá tener al menos 4 secciones.
+
 ● Utilizar etiquetas semánticas para estructurar el sitio.
 ● Contener un formulario de contacto con validación realizada mediante Javascript. Opcional: el formulario podrá enviar un email utilizando algún servicio externo destinado para ello.
 ● Utilizar al menos un Iframe, íconos de FontAwesome o Flaticon; y fuentes locales o bien de Google Fonts o similar.
