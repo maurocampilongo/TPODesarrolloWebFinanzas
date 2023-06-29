@@ -75,3 +75,19 @@ class Transacciones:
             print(f"Rubro: {registro.rubro}")
             print(f"Monto: {registro.monto}")
             print("-"*30)
+
+# -------------------------------------------------------------------
+# Definimos la clase "Saldo"
+# -------------------------------------------------------------------
+class Saldo:
+    # Definimos el constructor e inicializamos los atributos de instancia
+    def __init__(self):
+        self.items = []  # Lista de items en el saldo (variable de clase)            
+
+# Este método permite agregar registros de Transacciones a Saldo.
+    def agregar(self, codigo, monto, Transacciones):
+        # Nos aseguramos que el registro esté en Transacciones
+        registro = Transacciones.consultar_registro(codigo)
+        if registro is False:
+            print("El registro no existe.")
+            return False
