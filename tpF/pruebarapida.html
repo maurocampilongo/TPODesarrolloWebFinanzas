@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agregar registro</title>
+</head>
+<body>
+<h1>Agregar Registro al Transacciones</h1>
+<form id="formulario">
+<label for="codigo">Código:</label>
+<input type="text" id="codigo" name="codigo" required><br>
+<label for="fecha">Fecha:</label>
+<input type="number" id="fecha" name="fecha" required><br>
+<label for="detalle">Detalle:</label>
+<input type="text" id="detalle" name="detalle" required><br>
+<label for="categoria">Categoria:</label>
+<input type="text" id="categoria" name="categoria" required><br>
+<label for="rubro">Rubro:</label>
+<input type="text" id="rubro" name="rubro" required><br>
+<label for="monto">Monto:</label>
+<input type="number" id="monto" name="monto" required><br>
+<button type="submit">Agregar Registro</button>
+</form>
+    <script>
+    // Capturamos el evento de envío del formulario
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evitamos que se recargue la página
+    
+    // Obtenemos los valores del formulario
+    var codigo = document.getElementById('codigo').value;
+    var fecha = document.getElementById('fecha').value;
+    var detalle = document.getElementById('detalle').value;
+    var categoria = document.getElementById('categoria').value;
+    var rubro = document.getElementById('rubro').value;
+    var monto = document.getElementById('monto').value;
+    
+    // Creamos un objeto con los datos del registro
+    var registro = {
+        codigo: codigo,
+        fecha: fecha,
+        detalle: detalle,
+        categoria: categoria,
+        rubro: rubro,
+        monto: monto
+    };
+    console.log(registro);
+    
+    // Realizamos la solicitud POST al servidor
+    fetch('https://maurocampilongo.pythonanywhere.com/registros', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registro)
+    })
+    .then(function (response) {
+        if (response.ok) {
+            return response.json(); // Parseamos la respuesta JSON
+        } else {
+            throw new Error('Error al agregar el registro.');
+        }
+    })
+    .then(function (data) {
+        alert('Registro agregado correctamente.');
+    })
+    .catch(function (error) {
+        console.log('Error:', error);
+        alert('Error al agregar el registro.');
+    });
+    });
+    </script>
+</body>
+</html>

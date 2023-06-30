@@ -45,67 +45,33 @@
 
     <!-- Contenido principal-->
 <div>
-<body>
-        
-    <article>
-    <h1>Sección en Construcción</h1>
-    <br>
-    <h4>Mientras tanto, te dejamos esta información de la inflación de los últimos 12 meses</h4>
-    <br>
-    <mostrar id="dataBank"></mostrar>
+    <body>
+        <div>
+            <h1>Herramienta para gestionar tus finanzas personales</h1>
+            <h3>Menú Principal</h3>
+            <table>
+                <tr>
+                    <td class="contenedor-centrado"><a href="herramienta_alta_registro.html">Alta de registro</a></td>
+                </tr>
     
-    <script>
-        let dataBank = document.querySelector("#dataBank");
+                <tr>
+                    <td class="contenedor-centrado "><a href="herramienta_listado_registro.html">Listado de registro</a></td>
+                </tr>
     
-        const processData = (data) => {
-            // Obtiene la fecha actual
-            const now = new Date();
-        
-            // Calcula la fecha de hace 12 meses
-            const oneYearAgo = new Date();
-            oneYearAgo.setFullYear(now.getFullYear() - 1);
-        
-            // Filtra los datos para incluir solo los de los últimos 12 meses
-            const recentData = data.filter((info) => {
-                const infoDate = new Date(info.d);
-                return infoDate >= oneYearAgo;
-            });
-        
-            // Procesa solo los datos recientes
-            recentData.forEach((info) => {
-                const content = document.createElement("mostrar");
-                content.innerHTML = `<h4>Al mes : ${info.d}, la inflacion oficial es de ${info.v}</h4>`;
-                dataBank.append(content);
-            });
-        };
+                <tr>
+                    <td class="contenedor-centrado "><a href="herramienta_modificar_registro.html">Modificar datos de registro</a></td>
+                </tr>
     
-        const fetchData = async () => {
-            const apiUrl = "inflacion_mensual_oficial";
-            const proxyUrl = "https://bcra-proxy-cors.vercel.app";
+                <tr>
+                    <td class="contenedor-centrado "><a href="herramienta_eliminar_registro.html">Eliminar registro</a></td>
+                </tr>
     
-            try {
-                const response = await fetch(`${proxyUrl}/${apiUrl}`, {
-                    headers: {
-                        Authorization: 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTU5NjE2NzEsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJldmlzZW5iYWlyZXNAZ21haWwuY29tIn0.c2ulMoI9VFck60jibbKzkyaKYKJc2ECVskxtrUWCJqzMp3vUg0lskdGpid_JlsKiMudQghvIfTm6ILzOasic_Q',
-                    },
-                });
-    
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log(data);
-                    processData(data);
-                } else {
-                    console.error(`Error: ${response.status}`);
-                    console.log(await response.text());
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-    
-        fetchData();
-    </script>
+                <tr>
+                    <td class="contenedor-centrado "><a href="herramienta_saldo.html">Saldo</a></td>
+                </tr>
+            </table>
     </body>
+    
 </div>
     <!-- Contenido del pie -->
     <div class="pie item">
