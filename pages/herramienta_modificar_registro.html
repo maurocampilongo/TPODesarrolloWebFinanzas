@@ -46,26 +46,31 @@
     <!-- Contenido principal-->
 <div>
     <body>
-        <h1>Modificar Registros del Transacciones</h1>
-        <h3>Codo a Codo 2023</h3>
+        <h1>MODIFICAR REGISTROS DE LAS TRANSACCIONES</h1>        
         <div id="app">
-            <form @submit.prevent="obtenerProducto">
+            <form @submit.prevent="obtenerRegistro">
                 <label for="codigo">Código:</label>
                 <input type="text" v-model="codigo" required><br>
-                <button type="submit">Modificar Producto</button> <a href="herramienta.html">Menu principal Herramienta</a>
+                <button type="submit">Modificar Registro</button> <!-- <a href="herramienta.html">Menu principal Herramienta</a> -->
             </form>
     
-            <div v-if="mostrarDatosProducto">
-                <h2>Datos del Producto</h2>
+            <div v-if="mostrarDatosRegistro">
+                <h2>Datos del Registro</h2>
                 <form @submit.prevent="guardarCambios">
-                    <label for="descripcionModificar">Descripción:</label>
-                    <input type="text" id="descripcionModificar" v-model="descripcion" required><br>
+                    <label for="fechaModificar">Fecha:</label>
+                    <input type="text" id="fechaModificar" v-model="fecha" required><br>
     
-                    <label for="cantidadModificar">Cantidad:</label>
-                    <input type="number" id="cantidadModificar" v-model="cantidad" required><br>
+                    <label for="detalleModificar">Detalle:</label>
+                    <input type="text" id="detalleModificar" v-model="detalle" required><br>
+
+                    <label for="categoriaModificar">Categoría:</label>
+                    <input type="text" id="categoriaModificar" v-model="categoria" required><br>
+
+                    <label for="rubroModificar">Rubro:</label>
+                    <input type="text" id="rubroModificar" v-model="rubro" required><br>
     
-                    <label for="precioModificar">Precio:</label>
-                    <input type="number" step="0.01" id="precioModificar" v-model="precio" required><br>
+                    <label for="montoModificar">Monto:</label>
+                    <input type="number" step="0.01" id="montoModificar" v-model="monto" required><br>
     
                     <button type="submit">Guardar Cambios</button>
                     <a href="modificaciones.html">Cancelar</a>
@@ -76,58 +81,65 @@
         <script src="https://unpkg.com/vue@next"></script>
         <script>
             //const URL = "http://127.0.0.1:5000/"
-            const URL = "https://arielcodo.pythonanywhere.com/";
+            const URL = "https://maurocampilongo.pythonanywhere.com/";
     
             const app = Vue.createApp({
                 data() {
                     return {
                         codigo: '',
-                        mostrarDatosProducto: false,
-                        descripcion: '',
-                        cantidad: '',
-                        precio: ''
+                        mostrarDatosRegistro: false,
+                        fecha: '',
+                        detalle: '',
+                        categoria: '',
+                        rubro: '',
+                        monto: ''
                     }
                 },
                 methods: {
-                    obtenerProducto() {
-                        fetch(URL + 'productos/' + this.codigo)
+                    obtenerRegistro() {
+                        fetch(URL + 'registros/' + this.codigo)
                             .then(response => {
                                 if (response.ok) {
                                     return response.json();
                                 } else {
-                                    throw new Error('Error al obtener los datos del producto.');
+                                    throw new Error('Error al obtener los datos del registro.');
                                 }
                             })
                             .then(data => {
-                                this.descripcion = data.descripcion;
-                                this.cantidad = data.cantidad;
-                                this.precio = data.precio;
-                                this.mostrarDatosProducto = true;
+                                this.fecha = data.fecha;
+                                this.detalle = data.detalle;
+                                this.categoria = data.categoria;
+                                this.rubro = data.rubro;
+                                this.monto = data.monto;
+                                this.mostrarDatosRegistro = true;
                             })
                             .catch(error => {
-                                alert('Error al obtener los datos del producto.');
+                                alert('Error al obtener los datos del registro.');
                             });
                     },
                     guardarCambios() {
-                        const producto = {
+                        const registro = {
                             codigo: this.codigo,
-                            descripcion: this.descripcion,
-                            cantidad: this.cantidad,
-                            precio: this.precio
+                            fecha: this.fecha,
+                            detalle: this.detalle,
+                            categoria: this.categoria,
+                            rubro: this.rubro,
+                            monto: this.monto                           
+                            
                         };
     
-                        fetch(URL + 'productos/' + this.codigo, {
+                        fetch(URL + 'registros/' + this.codigo, {
                             method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify(producto)
+                            body: JSON.stringify(registro)
                         })
                             .then(response => {
                                 if (response.ok) {
                                     return response.json();
                                 } else {
-                                    throw new Error('Error al guardar los cambios del producto.');
+                                    throw new Error('Error al guardar los cambios del registro.');
                                 }
                             })
                             .then(data => {
@@ -135,14 +147,14 @@
                                 location.reload();
                             })
                             .catch(error => {
-                                alert('Error al guardar los cambios del producto.');
+                                alert('Error al guardar los cambios del registro.');
                             });
                     }
                 }
             });
     
             app.mount('#app');
-        </script>
+        </script>ss
     </body>
     
 </div>

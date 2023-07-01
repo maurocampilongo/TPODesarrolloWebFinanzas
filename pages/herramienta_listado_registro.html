@@ -46,56 +46,59 @@
     <!-- Contenido principal-->
 <div>
     <body>
-        <h1>Listado de Registros</h1>
-        <h3>Codo a Codo 2023</h3>
+        <h1>LISTADO DE REGISTROS</h1>        
         <table>
             <thead>
                 <tr>
                     <th>Código</th>
-                    <th>Descripción</th>
-                    <th>Cantidad</th>
-                    <th align="right">Precio</th>
+                    <th>Fecha</th>                    
+                    <th>Detalle</th>
+                    <th>Categoría</th>
+                    <th>Rubro</th>                    
+                    <th>Monto</th>
                 </tr>
             </thead>
             <tbody id="tablaRegistros">
             </tbody>
         </table>
     
-        <div class="contenedor-centrado">
+        <!-- <div class="contenedor-centrado">
             <a href="herramienta.html">Menu principal Herramienta</a>
-        </div>
+        </div> -->
     
         <script>
             //const URL = "http://127.0.0.1:5000/"
-            const URL = "https://arielcodo.pythonanywhere.com/"
+            const URL = "https://maurocampilongo.pythonanywhere.com/"
     
-            // Realizamos la solicitud GET al servidor para obtener todos los productos
-            fetch(URL + 'productos')
+            // Realizamos la solicitud GET al servidor para obtener todos los registros
+            fetch(URL + 'registros')
                 .then(function (response) {
                     if (response.ok) {
                         return response.json(); // Parseamos la respuesta JSON
                     } else {
                         // Si hubo un error, lanzar explícitamente una excepción
                         // para ser "catcheada" más adelante
-                        throw new Error('Error al obtener los productos.');
+                        throw new Error('Error al obtener los registros.');
                     }
                 })
                 .then(function (data) {
                     var tablaRegistros = document.getElementById('tablaRegistros');
     
-                    // Iteramos sobre los productos y agregamos filas a la tabla
-                    data.forEach(function (producto) {
+                    // Iteramos sobre los registros y agregamos filas a la tabla
+                    data.forEach(function (registro) {
                         var fila = document.createElement('tr');
-                        fila.innerHTML = '<td>' + producto.codigo + '</td>' +
-                            '<td>' + producto.descripcion + '</td>' +
-                            '<td align="right">' + producto.cantidad + '</td>' +
-                            '<td align="right">&nbsp; &nbsp;&nbsp; &nbsp;' + producto.precio + '</td>';
+                        fila.innerHTML = '<td>' + registro.codigo + '</td>' +
+                            '<td>' + registro.fecha + '</td>' +
+                            '<td align="center">' + registro.detalle + '</td>' +
+                            '<td align="center">' + registro.categoria + '</td>' +
+                            '<td align="center">' + registro.rubro + '</td>' +                            
+                            '<td align="center">'  + registro.monto + '</td>';
                         tablaRegistros.appendChild(fila);
                     });
                 })
                 .catch(function (error) {
                     // Código para manejar errores
-                    alert('Error al obtener los productos.');
+                    alert('Error al obtener los registros.');
                 });
         </script>
     </body>

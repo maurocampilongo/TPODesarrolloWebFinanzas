@@ -11,6 +11,7 @@
     <link rel="stylesheet" href='../css/style.css'>
     <title>HERRAMIENTA</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <script src="https://unpkg.com/vue@next"></script>
 </head>
 
 <div class="contenedor">
@@ -47,75 +48,81 @@
 <div>
     <body>
         <div id="app">
-          <h1>Carrito de compras</h1>
-          <h3>Codo a Codo 2023</h3>
+          <h1>SALDO</h1>          
           <table>
             <thead>
               <tr>
                 <th>Código</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Carrito</th>
+                <th>Fecha</th>                    
+                <th>Detalle</th>
+                <th>Categoría</th>
+                <th>Rubro</th>
+                <th>Monto</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="producto in productos" :key="producto.codigo">
-                <td>{{ producto.codigo }}</td>
-                <td>{{ producto.descripcion }}</td>
-                <td align="right">{{ producto.cantidad }}</td>
-                <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
-                <td>
-                  <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
-                  <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
-                </td>
+              <tr v-for="registro in registros" :key="registro.codigo">
+                  <td>{{ registro.codigo }}</td>
+                  <td>{{ registro.fecha }}</td>
+                  <td>{{ registro.detalle }}</td>
+                  <td>{{ registro.categoria }}</td>
+                  <td>{{ registro.rubro }}</td>
+                  <td>{{ registro.monto }}</td>
+                  <td>
+                  <button @click="agregarAlSaldo(registro)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
+                  <button @click="restarDelSaldo(registro)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>                
+                  </td>              
               </tr>
             </tbody>
           </table>
       
-          <div v-if="mostrarCarrito">
-            <h3>Registros en el carrito:</h3>
+          <div v-if="mostrarSaldo">
+            <h3>Registros en el saldo:</h3>
             <table>
               <thead>
                 <tr>
                   <th>Código</th>
-                  <th>Descripción</th>
-                  <th>Cantidad</th>
-                  <th>Precio</th>
+                  <th>Fecha</th>                    
+                  <th>Detalle</th>
+                  <th>Categoría</th>
+                  <th>Rubro</th>
+                  <th>Monto</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in carrito" :key="item.codigo">
+                <tr v-for="item in saldo" :key="item.codigo">
                   <td>{{ item.codigo }}</td>
-                  <td>{{ item.descripcion }}</td>
-                  <td align="right">{{ item.cantidad }}</td>
-                  <td align="right">&nbsp; &nbsp; {{ item.precio }}</td>
+                  <td>{{ item.fecha }}</td>
+                  <td>{{ item.detalle }}</td>
+                  <td>{{ item.categoria }}</td>
+                  <td>{{ item.rubro }}</td>
+                  <td>{{ item.monto }}</td>                   
                 </tr>
               </tbody>
             </table>
           </div>
       
-          <div v-if="!mostrarCarrito" class="contenedor-centrado">
-            <button @click="obtenerCarrito">Mostrar carrito</button>
+          <div v-if="!mostrarSaldo" class="contenedor-centrado">
+            <button @click="obtenerSaldo">Mostrar saldo</button>
           </div>
       
-          <div class="contenedor-centrado">
+          <!-- <div class="contenedor-centrado">
             <a href="herramienta.html">Menu principal Herramienta</a>
-          </div>
-      
+          </div> -->     
       
         </div>
       
         <script>
           //const URL = "http://127.0.0.1:5000/"
-          const URL = "https://arielcodo.pythonanywhere.com/"
+          const URL = "https://maurocampilongo.pythonanywhere.com/"
       
           const app = Vue.createApp({
             data() {
               return {
-                productos: [],
-                mostrarCarrito: false,
-                carrito: [],
+                registros: [],
+                mostrarSaldo: false,
+                saldo: [],
               };
             },
             created() {
@@ -123,25 +130,25 @@
             },
             methods: {
               obtenerRegistros() {
-                fetch(URL + 'productos')
+                fetch(URL + 'registros')
                   .then(response => response.json())
                   .then(data => {
-                    this.productos = data;
+                    this.registros = data;
                   })
                   .catch(error => {
-                    console.error(URL + 'productos', error);
-                    alert('Error al obtener los productos.');
+                    console.error(URL + 'registros', error);
+                    alert('Error al obtener los registros.');
                   });
               },
-              agregarAlCarrito(producto) {
-                fetch(URL + 'carrito', {
+              agregarAlSaldo(registro) {
+                fetch(URL + 'saldo', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    codigo: producto.codigo,
-                    cantidad: 1, // Agregamos una unidad al carrito
+                    codigo: registro.codigo,
+                    cantidad: 1, // Agregamos una unidad al saldo
                   }),
                 })
                   .then(response => response.json())
@@ -149,19 +156,19 @@
                     alert(data.message);
                   })
                   .catch(error => {
-                    console.error('Error al agregar el producto al carrito:', error);
-                    alert('Error al agregar el producto al carrito.');
+                    console.error('Error al agregar el registro al saldo:', error);
+                    alert('Error al agregar el registro al saldo.');
                   });
               },
-              restarDelCarrito(producto) {
-                fetch(URL + 'carrito', {
+              restarDelSaldo(registro) {
+                fetch(URL + 'saldo', {
                   method: 'DELETE',
                   headers: {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    codigo: producto.codigo,
-                    cantidad: 1, // Restamos una unidad del carrito
+                    codigo: registro.codigo,
+                    cantidad: 1, // Restamos una unidad del saldo
                   }),
                 })
                   .then(response => response.json())
@@ -169,21 +176,21 @@
                     alert(data.message);
                   })
                   .catch(error => {
-                    console.error('Error al restar el producto del carrito:', error);
-                    alert('Error al restar el producto del carrito.');
+                    console.error('Error al restar el registro del saldo:', error);
+                    alert('Error al restar el registro del saldo.');
                   });
               },
-              obtenerCarrito() {
+              obtenerSaldo() {
       
-                fetch(URL + 'carrito')
+                fetch(URL + 'saldo')
                   .then(response => response.json())
                   .then(data => {
-                    this.carrito = data;
-                    this.mostrarCarrito = true;
+                    this.saldo = data;
+                    this.mostrarSaldo = true;
                   })
                   .catch(error => {
-                    console.error('Error al obtener el carrito:', error);
-                    alert('Error al obtener el carrito.');
+                    console.error('Error al obtener el saldo:', error);
+                    alert('Error al obtener el saldo.');
                   });
               },
             },
