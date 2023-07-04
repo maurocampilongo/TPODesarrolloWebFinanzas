@@ -44,8 +44,8 @@
         <br>
         <h3>Completa el Formulario:</h3>
         <form id="formulario">
-            <label for="codigo">Código:</label>
-            <input type="text" id="codigo" name="codigo" required><br>
+            <!-- <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" required><br> -->
 
             <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha" required><br>
@@ -81,7 +81,7 @@
             event.preventDefault(); // se utiliza para evitar que la página se recargue cuando se envía el formulario.
 
             // Obtenemos los valores del formulario
-            var codigo = document.getElementById('codigo').value;
+            // var codigo = document.getElementById('codigo').value;
             var fecha = document.getElementById('fecha').value;
             var detalle = document.getElementById('detalle').value;
             var categoria = document.getElementById('categoria').value;
@@ -90,7 +90,7 @@
 
             // Creamos un objeto con los datos del registro
             var registro = {
-                codigo: codigo,
+                // codigo: codigo,
                 fecha: fecha,
                 detalle: detalle,
                 categoria: categoria,
@@ -119,7 +119,7 @@
                 .then(function (data) {
                     alert('Registro agregado correctamente.');
                     // Limpiamos el formulario.
-                    document.getElementById('codigo').value = "";
+                    // document.getElementById('codigo').value = "";
                     document.getElementById('fecha').value = "";
                     document.getElementById('detalle').value = "";
                     document.getElementById('categoria').value = "";
