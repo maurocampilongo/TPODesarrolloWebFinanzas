@@ -72,10 +72,6 @@
             </tbody>
         </table>
     
-        <!-- <div class="contenedor-centrado">
-            <a href="herramienta.html">Menu principal Herramienta</a>
-        </div>
-     -->
         <script src="https://unpkg.com/vue@next"></script>
         <script>
             //const URL = "http://127.0.0.1:5000/"
@@ -110,15 +106,29 @@
                             });
                     },
                     eliminarRegistro(codigo) {
-                        // Eliminamos el registro de la fila seleccionada
+                        // Encuentra el registro en la lista
+                        const registro = this.registros.find(reg => reg.codigo === codigo);
+                        if (!registro) {
+                            // Si el registro no se encuentra, mostrar un mensaje y salir
+                            alert('Registro no encontrado.');
+                            return;
+                        }
+                        
+                        // Guarda la información del registro para mostrarla más tarde
+                        const registroInfo = `Código: ${registro.codigo}, Fecha: ${registro.fecha}, Detalle: ${registro.detalle}, Categoría: ${registro.categoria}, Rubro: ${registro.rubro}, Monto: ${registro.monto}`;
+                    
+                        // Elimina el registro
                         fetch(URL + `registros/${codigo}`, { method: 'DELETE' })
                             .then(response => {
                                 if (response.ok) {
-                                    // Eliminar el registro de la lista después de eliminarlo en el servidor
-                                    this.registros = this.registros.filter(registro => registro.codigo !== codigo);
+                                    // Elimina el registro de la lista después de eliminarlo en el servidor
+                                    this.registros = this.registros.filter(reg => reg.codigo !== codigo);
                                     console.log('Registro eliminado correctamente.');
+                                    
+                                    // Muestra un mensaje con la información del registro eliminado
+                                    alert('Registro eliminado: ' + registroInfo);
                                 } else {
-                                    // Si hubo un error, lanzar explícitamente una excepción
+                                    // Si hubo un error, lanza explícitamente una excepción
                                     // para ser "catcheada" más adelante
                                     throw new Error('Error al eliminar el registro.');
                                 }
@@ -128,6 +138,7 @@
                                 alert('Error al eliminar el registro.');
                             });
                     }
+                    
                 },
                 mounted() {
                     //Al cargar la página, obtenemos la lista de registros

@@ -47,146 +47,50 @@
     <!-- Contenido principal-->
 <div>
     <body>
-        <div id="app">
-          <h1>SALDO</h1>          
-          <table>
+      <div id="app">
+        <h1>SALDO POR CATEGORÍA</h1>          
+        <table>
             <thead>
               <tr>
-                <th>Código</th>
-                <th>Fecha</th>                    
-                <th>Detalle</th>
                 <th>Categoría</th>
-                <th>Rubro</th>
                 <th>Monto</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="registro in registros" :key="registro.codigo">
-                  <td>{{ registro.codigo }}</td>
-                  <td>{{ registro.fecha }}</td>
-                  <td>{{ registro.detalle }}</td>
-                  <td>{{ registro.categoria }}</td>
-                  <td>{{ registro.rubro }}</td>
-                  <td>{{ registro.monto }}</td>
-                  <td>
-                  <button @click="agregarAlSaldo(registro)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
-                  <button @click="restarDelSaldo(registro)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>                
-                  </td>              
+              <tr v-for="(monto, categoria) in saldoPorCategoria" :key="categoria">
+                  <td>{{ categoria }}</td>
+                  <td>{{ monto }}</td>
               </tr>
             </tbody>
-          </table>
-      
-          <div v-if="mostrarSaldo">
-            <h3>Registros en el saldo:</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Código</th>
-                  <th>Fecha</th>                    
-                  <th>Detalle</th>
-                  <th>Categoría</th>
-                  <th>Rubro</th>
-                  <th>Monto</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in saldo" :key="item.codigo">
-                  <td>{{ item.codigo }}</td>
-                  <td>{{ item.fecha }}</td>
-                  <td>{{ item.detalle }}</td>
-                  <td>{{ item.categoria }}</td>
-                  <td>{{ item.rubro }}</td>
-                  <td>{{ item.monto }}</td>                   
-                </tr>
-              </tbody>
-            </table>
-          </div>
-      
-          <div v-if="!mostrarSaldo" class="contenedor-centrado">
-            <button @click="obtenerSaldo">Mostrar saldo</button>
-          </div>
-      
-          <!-- <div class="contenedor-centrado">
-            <a href="herramienta.html">Menu principal Herramienta</a>
-          </div> -->     
-      
-        </div>
+        </table>
+    </div>     
       
         <script>
-          //const URL = "http://127.0.0.1:5000/"
           const URL = "https://maurocampilongo.pythonanywhere.com/"
-      
+        
           const app = Vue.createApp({
             data() {
               return {
-                registros: [],
-                mostrarSaldo: false,
-                saldo: [],
+                saldoPorCategoria: {},
               };
             },
             created() {
-              this.obtenerRegistros();
+              this.obtenerSaldo();
             },
             methods: {
-              obtenerRegistros() {
+              obtenerSaldo() {
                 fetch(URL + 'registros')
                   .then(response => response.json())
                   .then(data => {
-                    this.registros = data;
-                  })
-                  .catch(error => {
-                    console.error(URL + 'registros', error);
-                    alert('Error al obtener los registros.');
-                  });
-              },
-              agregarAlSaldo(registro) {
-                fetch(URL + 'saldo', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    codigo: registro.codigo,
-                    cantidad: 1, // Agregamos una unidad al saldo
-                  }),
-                })
-                  .then(response => response.json())
-                  .then(data => {
-                    alert(data.message);
-                  })
-                  .catch(error => {
-                    console.error('Error al agregar el registro al saldo:', error);
-                    alert('Error al agregar el registro al saldo.');
-                  });
-              },
-              restarDelSaldo(registro) {
-                fetch(URL + 'saldo', {
-                  method: 'DELETE',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    codigo: registro.codigo,
-                    cantidad: 1, // Restamos una unidad del saldo
-                  }),
-                })
-                  .then(response => response.json())
-                  .then(data => {
-                    alert(data.message);
-                  })
-                  .catch(error => {
-                    console.error('Error al restar el registro del saldo:', error);
-                    alert('Error al restar el registro del saldo.');
-                  });
-              },
-              obtenerSaldo() {
-      
-                fetch(URL + 'saldo')
-                  .then(response => response.json())
-                  .then(data => {
-                    this.saldo = data;
-                    this.mostrarSaldo = true;
+                    // Procesa los datos para sumar los montos por categoría
+                    this.saldoPorCategoria = data.reduce((acc, registro) => {
+                      if (acc[registro.categoria]) {
+                        acc[registro.categoria] += registro.monto;
+                      } else {
+                        acc[registro.categoria] = registro.monto;
+                      }
+                      return acc;
+                    }, {});
                   })
                   .catch(error => {
                     console.error('Error al obtener el saldo:', error);
@@ -195,9 +99,9 @@
               },
             },
           });
-      
+        
           app.mount('#app');
-        </script>
+        </script>        
       </body>
     
 </div>

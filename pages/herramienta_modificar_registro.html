@@ -63,8 +63,15 @@
                     <label for="detalleModificar">Detalle:</label>
                     <input type="text" id="detalleModificar" v-model="detalle" required><br>
 
-                    <label for="categoriaModificar">Categoría:</label>
-                    <input type="text" id="categoriaModificar" v-model="categoria" required><br>
+                    <label for="categoriaModificar">Categoría:</label>                    
+                    <select id="categoriaModificar" v-model="categoria" required>
+                        <option value="" disabled selected hidden>Seleccionar una opción</option>
+                        <option value="Ingresos Fijos">Ingresos Fijos</option>
+                        <option value="Ingresos Variables">Ingresos Variables</option>
+                        <option value="Egresos Fijos">Egresos Fijos</option>
+                        <option value="Egresos Variables">Egresos Variables</option>
+                        <option value="Ahorro">Ahorro</option>
+                    </select><br>
 
                     <label for="rubroModificar">Rubro:</label>
                     <input type="text" id="rubroModificar" v-model="rubro" required><br>
@@ -154,7 +161,7 @@
             });
     
             app.mount('#app');
-        </script>ss
+        </script>
     </body>
     
 </div>

@@ -88,6 +88,42 @@ button:hover {
     background-color: #cccccc;
 }
 
+table {
+    width: 100%; /* Asegura que la tabla se extienda a lo largo de todo el contenedor */
+    border-collapse: separate; /* Esto permite agregar espaciado entre las celdas */
+    border-spacing: 0 10px; /* Espaciado entre las celdas. Los primeros 0 son para el espaciado horizontal, los 10px son para el espaciado vertical */
+}
+
+th {
+    background-color: #f2f2f2; /* Color de fondo para los encabezados */
+    color: #333; /* Color de texto para los encabezados */
+    padding: 10px; /* Espaciado interno para los encabezados */
+}
+
+td {
+    background-color: #fff; /* Color de fondo para las celdas de datos */
+    border: 1px solid #ccc; /* Borde para las celdas de datos */
+    padding: 10px; /* Espaciado interno para las celdas de datos */
+    text-align: left; /* Alineación del texto en las celdas de datos */
+}
+
+td:nth-child(6) {
+    text-align: right; /* Alinea a la derecha la sexta columna (monto) */
+}
+
+tr:hover {
+    background-color: #f5f5f5; /* Color de fondo para las filas al pasar el cursor sobre ellas */
+}
+
+td:nth-child(6)::before { /*formato de moneda pesos argentinos*/ 
+    content: "$";
+}
+
+table th, table td {
+    font-size: 0.8em; /* Ajusta este valor a tu gusto */
+}
+
+
 /*----------------------------------------------------------------*/
 /* FIN Fuente para la herramienta */
 /*----------------------------------------------------------------*/
