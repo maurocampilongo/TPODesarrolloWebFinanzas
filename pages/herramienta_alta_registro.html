@@ -75,6 +75,18 @@
     </div>
     
     <script>
+        // Capturamos el evento de carga de la página
+    window.addEventListener('DOMContentLoaded', function () {
+        // Obtenemos la fecha actual
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        var formattedDate = `${year}-${month}-${day}`;
+
+        // Establecemos la fecha actual como valor predeterminado en el campo de fecha
+        document.getElementById('fecha').value = formattedDate;
+    });
         const URL = "https://maurocampilongo.pythonanywhere.com/"
         // Capturamos el evento de envío del formulario
         document.getElementById('formulario').addEventListener('submit', function (event) {
