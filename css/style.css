@@ -132,7 +132,7 @@ table th, table td {
 .contenedor {
     display: grid;     
     /* Uso un atajo para definir tres filas / dos columnas */ 
-    grid-template: 100px 1fr 100px / 300px 1fr;
+    grid-template: 100px 1fr 100px / 170px 1fr;
                         /*filas columnas*/
     grid-template-areas:    "enc   enc"
                             "menu contenido"
