@@ -88,6 +88,14 @@
                                     }
                                     return acc;
                                 }, {});
+                        
+                                // Calcular el saldo de liquidez
+                                const ingresosFijos = this.saldoPorCategoria['Ingresos Fijos'] || 0;
+                                const ingresosVariables = this.saldoPorCategoria['Ingresos Variables'] || 0;
+                                const egresosFijos = this.saldoPorCategoria['Egresos Fijos'] || 0;
+                                const egresosVariables = this.saldoPorCategoria['Egresos Variables'] || 0;
+                                const ahorro = this.saldoPorCategoria['Ahorro'] || 0;
+                                this.saldoDeLiquidez = ingresosFijos + ingresosVariables - egresosFijos - egresosVariables - ahorro;
                             })
                             .catch(error => {
                                 console.error('Error al obtener el saldo:', error);
