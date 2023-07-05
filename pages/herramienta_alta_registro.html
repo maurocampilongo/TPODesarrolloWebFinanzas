@@ -129,9 +129,8 @@
                     }
                 })
                 .then(function (data) {
-                    alert('Registro agregado correctamente.');
+                    alert('Registro agregado correctamente. Código: ' + data.codigo);
                     // Limpiamos el formulario.
-                    // document.getElementById('codigo').value = "";
                     document.getElementById('fecha').value = "";
                     document.getElementById('detalle').value = "";
                     document.getElementById('categoria').value = "";
